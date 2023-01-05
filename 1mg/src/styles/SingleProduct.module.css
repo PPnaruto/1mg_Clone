@@ -1,0 +1,30 @@
+.parent{
+   display: "flex";
+   grid-template-columns: repeat(2,1fr);
+    width: 90%;
+    border: dashed red;
+    
+}
+.product_info{
+    width: 60%;
+    display: flex;
+    border: dashed rgb(17, 207, 74);
+}
+.tab_qty{
+    border: 1px solid black;
+    padding: 10px;
+}
+.price_info{
+    width: 30%;
+    border:1px solid pink;
+   /* text-decoration: ; */
+}
+.cart_button{
+    background-color: #ff6f61;
+    color: white;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
