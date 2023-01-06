@@ -1,16 +1,18 @@
+body {
+  background-color: #f6f6f6;
+}
+
 .product {
-  max-width: 1500px;
+  max-width: 1310px;
   margin: 1rem auto;
   display: flex;
   gap: 1rem;
 }
 
 .filterWrapper {
-  width: 20%;
-  border: 1px solid black;
+  width: 15%;
 }
 
 .productWrapper {
-  width: 80%;
-  border: 1px solid black;
+  width: 85%;
 }
