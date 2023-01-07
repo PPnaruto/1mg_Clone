@@ -1,14 +1,26 @@
-import AllRoutes from "./routes/AllRoutes";
-// import Checkout from "./components/Checkout/checkout";
-import "./styles/App.css";
 
+// import { SignUpLogin } from './components/SignupLogin';
+// import {useState, useEffect} from 'react' ;
 function App() {
+//  const // [isAuth,setAuth] = useState(false) ;
+ 
+//  useEffect(()=>{
+//   if(localStorage.getItem("isAuth")){
+//     setAuth(true) ;
+//    }
+//   }
+//  ,[])
+ 
+//  const handleAuth = ()=>{
+//   setAuth(true) ;
+//  }
   return (
-    <div className="App">
-      <AllRoutes />
-      {/* <Checkout/> */}
-    </div>
+
+  <div></div>
+
+      
   );
 }
 
 export default App;
+
