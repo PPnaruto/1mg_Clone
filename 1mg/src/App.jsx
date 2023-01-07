@@ -1,6 +1,7 @@
 
 // import { SignUpLogin } from './components/SignupLogin';
 // import {useState, useEffect} from 'react' ;
+import AllRoutes from "./routes/AllRoutes";
 function App() {
 //  const // [isAuth,setAuth] = useState(false) ;
  
@@ -16,7 +17,9 @@ function App() {
 //  }
   return (
 
-  <div></div>
+  <div> 
+<AllRoutes/>
+  </div>
 
       
   );
