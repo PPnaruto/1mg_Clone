@@ -1,5 +1,6 @@
 body {
   background-color: #f6f6f6;
+  padding: 0 1rem;
 }
 
 .product {
@@ -15,4 +16,27 @@ body {
 
 .productWrapper {
   width: 85%;
+}
+
+@media (max-width: 1000px) {
+  .filterWrapper {
+    width: 20%;
+  }
+
+  .productWrapper {
+    width: 80%;
+  }
+}
+
+@media (max-width: 800px) {
+  .product {
+    flex-direction: column;
+  }
+  .filterWrapper {
+    width: 100%;
+  }
+
+  .productWrapper {
+    width: 100%;
+  }
 }
