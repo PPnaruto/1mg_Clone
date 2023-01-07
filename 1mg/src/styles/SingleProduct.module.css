@@ -1,30 +1,95 @@
-.parent{
-   display: "flex";
-   grid-template-columns: repeat(2,1fr);
-    width: 90%;
-    border: dashed red;
-    
+.product {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 5px 0 silver;
 }
-.product_info{
-    width: 60%;
-    display: flex;
-    border: dashed rgb(17, 207, 74);
+
+.image {
+  height: 200px;
+  padding: 1.5rem;
+  cursor: pointer;
 }
-.tab_qty{
-    border: 1px solid black;
-    padding: 10px;
+
+.image > .img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
-.price_info{
-    width: 30%;
-    border:1px solid pink;
-   /* text-decoration: ; */
+
+.title {
+  font-size: 0.9rem;
+  cursor: pointer;
 }
-.cart_button{
-    background-color: #ff6f61;
-    color: white;
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
+
+.desc {
+  font-size: 0.7rem;
+  color: rgb(134, 134, 134);
+}
+
+.discount {
+  display: flex;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: rgb(134, 134, 134);
+}
+
+.discount > span {
+  text-decoration: line-through;
+}
+
+.discount > p:last-child {
+  color: #1aab2a;
+}
+
+.mrp {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mrp span {
+  font-size: 0.8rem;
+  color: rgb(134, 134, 134);
+}
+
+.mrp > button {
+  background-color: white;
+  color: tomato;
+  font-weight: bolder;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.parent {
+  display: "flex";
+  grid-template-columns: repeat(2, 1fr);
+  width: 90%;
+  border: dashed red;
+}
+.product_info {
+  width: 60%;
+  display: flex;
+  border: dashed rgb(17, 207, 74);
+}
+.tab_qty {
+  border: 1px solid black;
+  padding: 10px;
+}
+.price_info {
+  width: 30%;
+  border: 1px solid pink;
+  /* text-decoration: ; */
+}
+.cart_button {
+  background-color: #ff6f61;
+  color: white;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
 }
