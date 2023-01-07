@@ -1,18 +1,40 @@
 import React from 'react';
 import style from "../../styles/SingleProduct.module.css";
 import Addtocart_action from '../../redux/Cart/AddtoCart_action';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import store from '../../redux/store';
+import { useState } from 'react';
 
-const AddtoCart = ({state}) => {
+
+const AddtoCart = ({state,price}) => {
+    const data = useSelector((seletor)=>{
+        return seletor.cart.Products;
+    })
+    // const [onprice,setOnprice] = useState(price);
+    const [qty,setQty] = useState(1);
+    const [flag,setFlag] = useState(true);
     const dispatch = useDispatch();
      const handleclick=()=>{
-        Addtocart_action(state,dispatch);
-        alert("Product Added Succesfully");
+           const filtered= data.filter((e)=>{
+                return (e.Actual_price===price && e.qty===qty && e.state.title===state.title)       
+            })
+            if(filtered.length==0){
+                Addtocart_action(state,price,qty,dispatch);
+                alert("Product Added Succesfully");
+            }   
         show();
     }
     const show =()=>{
         console.log(store.getState());
+    }
+    const handleqtychange=(e)=>{
+        if(e.target.value === "1"){
+            setQty(1);
+        }else if(e.target.value === "2"){ 
+            setQty(2);
+        }else if(e.target.value === "3"){
+            setQty(3);
+        }
     }
   return (
     <div className={style.cart_box} >
@@ -23,14 +45,14 @@ const AddtoCart = ({state}) => {
                 <div>
                     <div style={{padding:"10px"}}>
                         <div className={style.price_val}>
-                           <input type="radio"checked />
-                            <p style={{fontSize:"23px"}}>Rs. {state.price}</p>
-                            <p style={{textDecoration:"line-through",fontSize:"16px"}}>MRP <span>Rs. {Math.floor((state.price*100)/(100-state.discount))}</span></p>
+                           <input type="radio" checked name="value" />
+                            <p style={{fontSize:"23px"}}>Rs. {price}</p>
+                            <p style={{textDecoration:"line-through",fontSize:"16px"}}>MRP <span>Rs. {Math.floor((price*100)/(100-state.discount))}</span></p>
                             <span className={style.discount_val}>{state.discount}% off</span>
                         </div>
                         <div className={style.price_val} style={{display:"flex",alignItems:"center"}}>
-                            <input type="radio" value="{state.price}" />
-                            <p style={{fontSize:"23px"}}>Rs. {state.price} </p>
+                            <input type="radio" name="value" />
+                            <p style={{fontSize:"23px"}}>Rs. {price} </p>
                             <span style={{fontSize:"12px"}}>+ free shipping and 5% Extra NeuCoins with </span>
                             <img style={{width:"50px",height:"20px",border:"1px solid red"}} src="https://onemg.gumlet.io/v1613645053/marketing/phb2bz61etrdmuurfdoq.png" alt="image_care plan" />   
                         </div>
@@ -38,11 +60,11 @@ const AddtoCart = ({state}) => {
                         
                         <p style={{fontSize:"12px",marginTop:"20px"}}>Inclusive of all taxes</p>
                         <div className={style.packets_box}>
-                            <select name="" id="">
-                                <option value="1">1 bottle</option>
-                                <option value="2">2 bottle</option>
-                                <option value="3">3 bottle</option>
-                            </select> of 30 tablets
+                            <select name="" id="" onChange={handleqtychange}>
+                                <option value="1">1 Pack</option>
+                                <option value="2">2 Pack</option>
+                                <option value="3">3 Pack</option>
+                            </select> of 30 {state.product_form}
                         </div>
                         <button className={style.cart_button} onClick={handleclick}>Add to cart</button>
                     </div>

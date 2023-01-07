@@ -110,8 +110,13 @@
   color: #913d36;
   font-size: 12px;
   border-radius: 4px;
+  font-weight: bold;
   /* margin: auto; */
-  
+  cursor: pointer; 
+}
+.tab_qty:hover{
+  background-color:  #fff3e3;
+  border: 1px solid #913d36;
 }
 .product_highlight{
   margin-top: 10px;

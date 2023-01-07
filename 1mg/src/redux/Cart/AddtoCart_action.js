@@ -1,8 +1,12 @@
 
-let Addtocart_action=(data,dispatch)=>{
+let Addtocart_action=(state,price,qty,dispatch)=>{
     dispatch({
         type:"ADD_TO_CART",
-        payload:data,
+        payload:{
+            state,
+            Actual_price:price,
+            qty
+        },
     })
 }
 

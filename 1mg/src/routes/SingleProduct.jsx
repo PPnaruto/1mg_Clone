@@ -8,9 +8,6 @@ import Product_detail_info from '../components/SingleProduct/Productdetailinfo';
 import LabTest from '../components/SingleProduct/LabTest';
 import ConsultDoctor from '../components/SingleProduct/ConsultDoctor';
 import Additional from '../components/SingleProduct/Additional';
-import {useDispatch} from "react-redux";
-import Addtocart_action from '../redux/Cart/AddtoCart_action';
-import store from '../redux/store';
 import Rating from "../components/Product/Rating"
 import AddtoCart from '../components/SingleProduct/AddtoCart';
 import DeliveryBox from '../components/SingleProduct/DeliveryBox';
@@ -21,6 +18,7 @@ import ContentDetails from '../components/SingleProduct/ContentDetails';
 
     const [state,setState] = useState({});
     const [data,setData] = useState([]);
+    const [price,setPrice] = useState(state.price);
     // const dispatch = useDispatch();
     useEffect(()=>{
         fetch(' http://localhost:8080/products/1')
@@ -28,8 +26,13 @@ import ContentDetails from '../components/SingleProduct/ContentDetails';
         .then((data)=>{
             console.log(data);
             setState(data);
+            setPrice(data.price);
         });
     },[]);
+
+    const handleprice = (value)=>{
+       setPrice(value);
+    }
    
   return (
     <div style={{border:"10px solid blue",marginTop:"20px"}}>
@@ -48,9 +51,22 @@ import ContentDetails from '../components/SingleProduct/ContentDetails';
                 </div>
                 <p style={{fontSize:"16px",marginTop:"15px"}}>Pack Size (3)</p>
                 <div className={style.qty_price_box}>
-                    <div className={style.tab_qty}><p >30 tablets</p><br /><span>Rs.{state.price}</span></div>
-                    <div className={style.tab_qty}><p>60 tablets</p><br /><span>Rs.{state.price*2}</span></div>
-                    <div className={style.tab_qty}><p>90 tablets</p><br /><span>Rs.{state.price*3}</span></div>
+                    {
+                        (state.product_form==="Tablet"||state.product_form==="Capsule"||state.product_form==="Gummy" ? 
+                        <> 
+                        <div onClick={()=>handleprice(state.price)} name="1" className={style.tab_qty}><p >30 {state.product_form}</p><br /><span>Rs.{state.price}</span></div>
+                        <div onClick={()=>handleprice(state.price*2)} name="2" className={style.tab_qty}><p>60 {state.product_form}</p><br /><span>Rs.{state.price*2}</span></div>
+                        <div onClick={()=>handleprice(state.price*3)} name="3" className={style.tab_qty}><p>90 {state.product_form}</p><br /><span>Rs.{state.price*3}</span></div>
+                        </> : 
+                        state.product_form==="Powder" ? 
+                        <> 
+                        <div onClick={()=>handleprice(state.price)} className={style.tab_qty}><p >200g {state.product_form}</p><br /><span>Rs.{state.price}</span></div>
+                        <div onClick={()=>handleprice(state.price*2)} className={style.tab_qty}><p>500 {state.product_form}</p><br /><span>Rs.{state.price*2}</span></div>
+                        <div onClick={()=>handleprice(state.price*3)} className={style.tab_qty}><p>750 {state.product_form}</p><br /><span>Rs.{state.price*3}</span></div>
+                        </> : 
+                        <div></div> )
+                    }
+                   
                 </div>
                 <p style={{fontSize:"16px",marginTop:"20px"}}>Product Heighlights:-</p>
                 <p><ul className={style.product_highlight}>
@@ -65,7 +81,7 @@ import ContentDetails from '../components/SingleProduct/ContentDetails';
         </div>
         <div className={style.price_info}>
            
-           <AddtoCart state={state}/>
+           <AddtoCart state={state} price={price}/>
 
            <DeliveryBox/>
            <div style={{marginTop:"20px"}}>
