@@ -10,6 +10,7 @@ let Addtocart_reducer=(state=initdata,action)=>{
                 Products:[...state.Products,action.payload],
             }
     }
+
     return state;
 
 }
