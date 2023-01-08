@@ -68,17 +68,18 @@
   display: "flex";
   grid-template-columns: repeat(2, 1fr);
   width: 90%;
-  border: dashed red;
+  /* border: dashed red; */
   margin: auto;
+  background-color: #fff;
 }
 .product_info {
   width: 60%;
   display: flex;
-  border: dashed rgb(17, 207, 74);
+  /* border: dashed rgb(17, 207, 74); */
   gap:20px;
 }
 .product_image{
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 40px;
 }
 .product_image>img{
@@ -125,9 +126,9 @@
   font-size: 12px;
 }
 .price_info {
+  margin-top: 10px;
   width: 33%;
-  border: 1px solid pink;
-  /* text-decoration: ; */
+  /* border: 1px solid pink; */
 }
 
 .cart_box{
@@ -264,7 +265,7 @@
     cursor: pointer;
 }
 .youtubebox{
-    border:1px solid black;
+    /* border:1px solid black; */
     width: 800px;
     height:500px;
     margin: 50px;

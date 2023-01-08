@@ -37,7 +37,7 @@ import Footer_new from '../components/Footer/Footer_new';
     }
    
   return (
-    <div style={{border:"10px solid blue",marginTop:"20px"}}>
+    <div>
     <div style={{display:"flex", justifyContent:"space-around"}} className={style.parent} >
         <div className={style.product_info}>
             <div className={style.product_image}>
@@ -93,14 +93,14 @@ import Footer_new from '../components/Footer/Footer_new';
           
         </div>
     </div>
-    <div style={{border:"10px solid black",display:"flex"}}>
+    <div style={{display:"flex"}}>
         <div> 
             <Youtubevideo/>
-            <div className={style.Product_detail_info} style={{border:"1px solid black",width:"800px"}}>
+            <div className={style.Product_detail_info} style={{width:"800px"}}>
                     <Product_detail_info/>
             </div>
         </div>
-        <div style={{border:"3px solid violet",width:"30%"}}>
+        <div style={{width:"30%"}}>
           <LabTest/>
           <ConsultDoctor/>
           <Additional/>
