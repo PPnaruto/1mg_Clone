@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-import styles from "../styles/ProductBreadCrum.module.css";
+import styles from "../../styles/BreadCrum.module.css";
 
-const ProductBreadCrum = ({ category }) => {
-  //   category = category ==
+const BreadCrum = ({ category }) => {
   return (
     <div className={styles.breadcrum}>
       <Link to="#">Home</Link>
@@ -16,4 +15,4 @@ const ProductBreadCrum = ({ category }) => {
   );
 };
 
-export default ProductBreadCrum;
+export default BreadCrum;

@@ -7,11 +7,11 @@ import fetchData from "../redux/Product/action";
 
 import styles from "../styles/Vitamins.module.css";
 
-const Vitamins = () => {
+const Personal = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData("Vitamins"));
+    dispatch(fetchData("Personal"));
   }, []);
 
   return (
@@ -21,10 +21,10 @@ const Vitamins = () => {
           <AllFilters />
         </div>
         <div className={styles.productWrapper}>
-          <ProductsWrapper category="Vitamins" />
+          <ProductsWrapper category="Personal" />
         </div>
       </section>
     </main>
   );
 };
-export default Vitamins;
+export default Personal;
