@@ -17,24 +17,18 @@ function Checkout() {
     const dispatch = useDispatch();
     const history = useNavigate();
 
-    
-
-    // const data = useSelector(state => state.carts)
-    // useEffect(() => {
-    //     console.log('The cart has changed!');
-    //   }, [data]);
+    const [total,setTotal] = useState(0);
+    useEffect(()=>{
+        const itemprice = JSON.parse(localStorage.getItem('Cartdata1'))||[];
+        const total_price = itemprice.reduce((acc,ele)=>{
+            // console.log(ele.Actual_price);
+            return acc + ((ele.Actual_price)*(ele.qty));
+        },0)
+        setTotal(total_price);
+    },[data])
     return (
-        <div className="main">
-        <div className="top">
-                <img src="https://www.1mg.com/images/tata_1mg_logo.svg" width="124" height="35" />
-                
-                <input type="search" name="search" width="100 %"  ></input>
-                <button type="submit" style={{cursor:"pointer", background:"#FFFFFF" ,border:"none"}}>
-                    <i class="fas fa-search"></i>
-                </button>
-                
-                
-            </div>
+        <div className="main1">
+       
             <span class="CartStepperMobile__label___3iasr">My Cart</span>
 
             <div className='row d-flex justify-content-center align-items-center' style={{boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"}}>
@@ -58,18 +52,18 @@ function Checkout() {
                             dispatch(DLT(id));
                             history("/checkout");
 
-                            console.log(id);
+                            // console.log(id);
                         }
                         
                         
                         if(element.discount === null){
-                            price = element.state.price;
-                            console.log(price);
+                            price = element.Actual_price;
+                            // console.log(price);
                         }
                         else{
-                            price = Math.floor(element.state.price - ((element.state.price * element.state.discount) / 100));
+                            price = Math.floor(element.Actual_price - ((element.Actual_price * element.state.discount) / 100));
                             
-                            console.log(price);
+                            // console.log(price);
                         }
                         
                         return (
@@ -85,18 +79,24 @@ function Checkout() {
                                 </div>
                                 <div className="price_box">
                                     <h4>₹{price}</h4>
-                                    {element.state.price !== price && <h4 style={{textDecoration:"line-through" ,color:"#9E9E9E" ,fontSize:"10px"}}>MRP {element.state.price}</h4>}
+                                    {element.state.price !== price && <h4 style={{textDecoration:"line-through" ,color:"#9E9E9E" ,fontSize:"10px"}}>MRP {element.Actual_price}</h4>}
                                     <div className="inc" style={{width:100, cursor:"pointer",background:"#FF6F61",color:"#111"}}>
-                                        <span style={{fontSize:15}}  onClick={()=>remove(element.state.id)}>-</span>
+                                        <span style={{fontSize:15}}  onClick={()=>remove(id)}>-</span>
                                         <span style={{fontSize:14}}>{element.qty}</span>
-                                        <span style={{fontSize:15}} onClick={()=>send(element.state.id)}>+</span>
+                                        <span style={{fontSize:15}} onClick={()=>send(id)}>+</span>
                                     </div>
+                                    
                                 </div>
                                 <hr></hr>
+                                
                             </div>
+                            
                         )
                     })
                 }
+                <div>
+                    Total Price:- <span>{total}</span>
+                </div>
                 </div>
         </div>
     )

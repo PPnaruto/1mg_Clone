@@ -17,7 +17,8 @@ const AddtoCart = ({state,price}) => {
     const dispatch = useDispatch();
     useEffect(()=>{
          setCartitem(JSON.parse(localStorage.getItem("Cartdata1"))||[]);
-    },[])
+         console.log("Hi");
+    },[data])
      const handleclick=()=>{
            const filtered= data.filter((e)=>{
                 return (e.Actual_price===price && e.qty===qty && e.state.title===state.title)       

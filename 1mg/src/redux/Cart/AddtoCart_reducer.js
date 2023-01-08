@@ -14,8 +14,10 @@ let Addtocart_reducer=(state=initdata,action)=>{
             
         break;
         case "INCREASE_QUANTITY":
-            const items = state.Products.map(e => {
-                if(e.state.id === action.payload){
+
+            const items = state.Products.map((e,i) => {
+                
+                if(i === action.payload){
                     e.qty += 1;
                 }
                 return e;
@@ -24,11 +26,15 @@ let Addtocart_reducer=(state=initdata,action)=>{
                 ...state,
                 Products:items
             }
+            localStorage.setItem("Cartdata1",JSON.stringify(items));
             break;
             case "DECREASE_QUANTITY":
-                const products = state.Products.map(e => {
-                    if(e.state.id === action.payload){
-                        e.qty -= 1;
+                const products = state.Products.map((e,i) => {
+                    if(i === action.payload){
+                        if(e.qty>1){
+                            e.qty -= 1;
+                        }
+                      
                     }
                     return e;
                 })
@@ -36,6 +42,7 @@ let Addtocart_reducer=(state=initdata,action)=>{
                     ...state,
                     Products:products
                 }
+                localStorage.setItem("Cartdata1",JSON.stringify(products));
                 break;
     }
     //localStorage.setItem('Cartdata1', JSON.stringify(state));
