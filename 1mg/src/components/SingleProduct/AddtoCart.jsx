@@ -6,11 +6,13 @@ import store from '../../redux/store';
 import { useState } from 'react';
 
 
+
 const AddtoCart = ({state,price}) => {
     const data = useSelector((seletor)=>{
         return seletor.cart.Products;
     })
-    // const [onprice,setOnprice] = useState(price);
+   
+
     const [qty,setQty] = useState(1);
     const [flag,setFlag] = useState(true);
     const dispatch = useDispatch();
@@ -21,6 +23,8 @@ const AddtoCart = ({state,price}) => {
             if(filtered.length==0){
                 Addtocart_action(state,price,qty,dispatch);
                 alert("Product Added Succesfully");
+            }else{
+                alert("Product is already Added");
             }   
         show();
     }

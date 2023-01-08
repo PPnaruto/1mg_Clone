@@ -13,13 +13,14 @@ import AddtoCart from '../components/SingleProduct/AddtoCart';
 import DeliveryBox from '../components/SingleProduct/DeliveryBox';
 import AdditionalOffer from '../components/SingleProduct/AdditionalOffer';
 import ContentDetails from '../components/SingleProduct/ContentDetails';
+import {useParams} from "redux";
 
  const SingleProduct = () => {
 
     const [state,setState] = useState({});
     const [data,setData] = useState([]);
     const [price,setPrice] = useState(state.price);
-    // const dispatch = useDispatch();
+    // const {id} = useParams();
     useEffect(()=>{
         fetch(' http://localhost:8080/products/1')
         .then((res)=>res.json())
