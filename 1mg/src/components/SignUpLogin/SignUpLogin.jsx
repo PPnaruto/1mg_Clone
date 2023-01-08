@@ -1,71 +1,75 @@
 import * as React from "react";
 import TextField from "@mui/material/TextField";
 
-import { useState} from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import "./SignupLogin.css";
+import "../../styles/SignUpLogin.css";
+import { SignupAction } from "../../redux/Auth/AuthAction";
 
-export function SignUpLogin({handleAuth}) {
+export default function SignUpLogin() {
   const [popup, setPopup] = useState(false);
   const [popLogin, setPopLogin] = useState(false);
   const [signUpBox, setSignBox] = useState(false);
-  const [mob,setmob] = useState('') ;
-  const [pass,setpass] = useState('') ;
- const [loginotp,setloginotp] = useState('') ;
-  const handleChange = (e)=>{
-    
-    setpass(e.target.value) ;
-  }
-  const handlemobchange = (e)=>{
-    setmob(e.target.value) ;
-  }
-  const handleloginotp = (e)=>{
-    setloginotp(e.target.value)
-  }
+  const [mob, setmob] = useState("");
+  const [pass, setpass] = useState("");
+  const [loginotp, setloginotp] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setpass(e.target.value);
+  };
+  const handlemobchange = (e) => {
+    setmob(e.target.value);
+  };
+  const handleloginotp = (e) => {
+    setloginotp(e.target.value);
+  };
   const handleLogin = () => {
     setPopLogin(!popLogin);
   };
   const closeLogin = () => {
     setPopLogin(false);
-    
-   
   };
-  const submitlogin = ()=>{
-    if(loginotp==='1234'){
-        alert('logged in successfully');
-        localStorage.setItem('isAuth', true) ;
-        handleAuth() ;
-        setPopLogin(false);
+  const submitlogin = () => {
+    if (loginotp === "1234") {
+      navigate("/");
+      setPopLogin(false);
+    } else {
+      alert("Enter Valid OTP");
     }
-    else{
-        alert('Enter Valid OTP')
-        
-    }
-  }
+  };
 
   const handleSignUp = () => {
     setPopup(!popup);
   };
 
   const Signupfunc = () => {
-    if(pass==='1234'){
-        alert('Signed Up successfully');
-        
-    }
-    else{
-        alert('Please Enter Valid OTP')
+    if (pass === "1234") {
+      SignupAction(dispatch, mob);
+      alert("Signed Up successfully");
+    } else {
+      alert("Please Enter Valid OTP");
     }
     setPopup(false);
-
   };
 
   return (
     <div>
-      <span onClick={handleLogin} style={{position:"relative",cursor:"pointer"}}>Login</span>
+      <span
+        onClick={handleLogin}
+        style={{ position: "relative", cursor: "pointer" }}
+      >
+        Login
+      </span>
       <span>&nbsp; | &nbsp;</span>
-      <span onClick={handleSignUp} style={{cursor:"pointer"}}>Sign Up</span>
+      <span onClick={handleSignUp} style={{ cursor: "pointer" }}>
+        Sign Up
+      </span>
 
       <div>
         {/* signup started here */}
@@ -111,6 +115,7 @@ export function SignUpLogin({handleAuth}) {
                         margin="normal"
                         onChange={handleChange}
                         fullWidth
+                        value={pass}
                       />
                       <FormControlLabel
                         control={
@@ -124,8 +129,8 @@ export function SignUpLogin({handleAuth}) {
                         }
                         label="Confirm Your OTP"
                       />
-                      <button className="btn" onClick={Signupfunc}>
-                      Confirm OTP
+                      <button className="btn20" onClick={Signupfunc}>
+                        Confirm OTP
                       </button>
                     </div>
                   ) : (
@@ -141,7 +146,7 @@ export function SignUpLogin({handleAuth}) {
                         label="Enter Mobile Number"
                         variant="standard"
                         margin="normal"
-                       onChange={handlemobchange}
+                        onChange={handlemobchange}
                         fullWidth
                       />
                       <FormControlLabel
@@ -157,9 +162,8 @@ export function SignUpLogin({handleAuth}) {
                         label="Are you a healthcare professional? "
                       />
                       <button
-                        className="btn"
+                        className="btn20"
                         onClick={() => {
-                            console.log(mob)
                           setSignBox(!signUpBox);
                         }}
                       >
@@ -232,8 +236,9 @@ export function SignUpLogin({handleAuth}) {
                         label="Enter Your OTP"
                         variant="standard"
                         margin="normal"
-                        onChange={handleloginotp} 
+                        onChange={handleloginotp}
                         fullWidth
+                        value={loginotp}
                       />
                       <FormControlLabel
                         control={
@@ -247,7 +252,7 @@ export function SignUpLogin({handleAuth}) {
                         }
                         label="Confirm Your OTP"
                       />
-                      <button className="btn" onClick={submitlogin}>
+                      <button className="btn20" onClick={submitlogin}>
                         Confirm OTP
                       </button>
                     </div>
@@ -265,6 +270,7 @@ export function SignUpLogin({handleAuth}) {
                         variant="standard"
                         margin="normal"
                         fullWidth
+                        onChange={handlemobchange}
                       />
                       <FormControlLabel
                         control={
@@ -279,9 +285,20 @@ export function SignUpLogin({handleAuth}) {
                         label="Confirm Email or Mobile Number"
                       />
                       <button
-                        className="btn"
+                        className="btn20"
                         onClick={() => {
-                          setSignBox(!signUpBox);
+                          const users =
+                            JSON.parse(localStorage.getItem("1mg_users"))
+                              .users || [];
+                          const filter = users.filter(
+                            (element) => element == mob
+                          );
+                          if (filter.length > 0) {
+                            setSignBox(!signUpBox);
+                          } else {
+                            setPopLogin(false);
+                            setPopup(!popup);
+                          }
                         }}
                       >
                         Login

@@ -1,6 +1,7 @@
 import styles from "../../styles/SubNavOne.module.css";
 
 import { Link } from "react-router-dom";
+import SignUpLogin from "../SignUpLogin/SignUpLogin";
 
 const SubNavOne = () => {
   return (
@@ -41,7 +42,8 @@ const SubNavOne = () => {
       </div>
       <div className={styles.right}>
         <div className={`${styles.login} ${styles.element}`}>
-          <button>Login</button>|<button>Sign Up</button>
+          {/* <button>Login</button>|<button>Sign Up</button> */}
+          <SignUpLogin />
         </div>
         <div className={styles.element}>
           <Link to="#">Offers</Link>
