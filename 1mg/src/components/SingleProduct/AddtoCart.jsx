@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "../../styles/SingleProduct.module.css";
-import Addtocart_action from '../../redux/Cart/AddtoCart_action';
+import {Addtocart_action} from '../../redux/Cart/AddtoCart_action';
 import { useDispatch,useSelector } from 'react-redux';
 import store from '../../redux/store';
 import { useEffect,useState } from 'react';
@@ -17,7 +17,8 @@ const AddtoCart = ({state,price}) => {
     const dispatch = useDispatch();
     useEffect(()=>{
          setCartitem(JSON.parse(localStorage.getItem("Cartdata1"))||[]);
-    },[])
+         console.log("Hi");
+    },[data])
      const handleclick=()=>{
            const filtered= data.filter((e)=>{
                 return (e.Actual_price===price && e.qty===qty && e.state.title===state.title)       
