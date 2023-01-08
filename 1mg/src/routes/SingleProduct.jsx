@@ -13,7 +13,7 @@ import AddtoCart from '../components/SingleProduct/AddtoCart';
 import DeliveryBox from '../components/SingleProduct/DeliveryBox';
 import AdditionalOffer from '../components/SingleProduct/AdditionalOffer';
 import ContentDetails from '../components/SingleProduct/ContentDetails';
-import {useParams} from "redux";
+import {useParams} from "react-router-dom";
 import Footer_new from '../components/Footer/Footer_new';
 
  const SingleProduct = () => {
@@ -21,9 +21,9 @@ import Footer_new from '../components/Footer/Footer_new';
     const [state,setState] = useState({});
     const [data,setData] = useState([]);
     const [price,setPrice] = useState(state.price);
-    // const {id} = useParams();
+    const {id} = useParams();
     useEffect(()=>{
-        fetch(' http://localhost:8080/products/1')
+        fetch(`http://localhost:8080/products/${id}`)
         .then((res)=>res.json())
         .then((data)=>{
             console.log(data);

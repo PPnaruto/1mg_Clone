@@ -65,6 +65,7 @@ const ProductContainer = ({ sort }) => {
           {products.map((element) => (
             <SingleProduct
               key={element.id}
+              id={element.id}
               image={element.image}
               title={element.title}
               desc={element.desc}
