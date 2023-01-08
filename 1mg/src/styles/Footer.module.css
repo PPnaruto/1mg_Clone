@@ -1,0 +1,24 @@
+.footer_container{
+    /* width: 90%; */
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+}
+.footer_child img{
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+.social_icons{
+    display: flex;
+    gap: 10px;
+}
+.signup_btn{
+    width: 97px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #ff6f61;
+    font-weight: 700;
+    border: none;
+    vertical-align: middle;
+    color: #fff;
+}
