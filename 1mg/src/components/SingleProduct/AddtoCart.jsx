@@ -14,11 +14,10 @@ const AddtoCart = ({state,price}) => {
    
     const [cartitem,setCartitem] = useState([]);
     const [qty,setQty] = useState(1);
-    const [flag,setFlag] = useState(true);
     const dispatch = useDispatch();
     useEffect(()=>{
          setCartitem(JSON.parse(localStorage.getItem("Cartdata1"))||[]);
-    },[cartitem])
+    },[])
      const handleclick=()=>{
            const filtered= data.filter((e)=>{
                 return (e.Actual_price===price && e.qty===qty && e.state.title===state.title)       
@@ -58,13 +57,13 @@ const AddtoCart = ({state,price}) => {
                     <div style={{padding:"10px"}}>
                         <div className={style.price_val}>
                            <input type="radio" checked name="value" />
-                            <p style={{fontSize:"23px"}}>Rs. {price}</p>
-                            <p style={{textDecoration:"line-through",fontSize:"16px"}}>MRP <span>Rs. {Math.floor((price*100)/(100-state.discount))}</span></p>
+                            <p style={{fontSize:"23px"}}>Rs. {Math.floor(price-(price*(state.discount/100)))}</p>
+                            <p style={{textDecoration:"line-through",fontSize:"16px"}}>MRP <span>Rs. {price}</span></p>
                             <span className={style.discount_val}>{state.discount}% off</span>
                         </div>
                         <div className={style.price_val} style={{display:"flex",alignItems:"center"}}>
                             <input type="radio" name="value" />
-                            <p style={{fontSize:"23px"}}>Rs. {price} </p>
+                            <p style={{fontSize:"23px"}}>Rs. {Math.floor(price-(price*(state.discount/100)))} </p>
                             <span style={{fontSize:"12px"}}>+ free shipping and 5% Extra NeuCoins with </span>
                             <img style={{width:"50px",height:"20px",border:"1px solid red"}} src="https://onemg.gumlet.io/v1613645053/marketing/phb2bz61etrdmuurfdoq.png" alt="image_care plan" />   
                         </div>

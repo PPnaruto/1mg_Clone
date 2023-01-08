@@ -1,29 +1,15 @@
-
-// import { SignUpLogin } from './components/SignupLogin';
-// import {useState, useEffect} from 'react' ;
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 import AllRoutes from "./routes/AllRoutes";
+
 function App() {
-//  const // [isAuth,setAuth] = useState(false) ;
- 
-//  useEffect(()=>{
-//   if(localStorage.getItem("isAuth")){
-//     setAuth(true) ;
-//    }
-//   }
-//  ,[])
- 
-//  const handleAuth = ()=>{
-//   setAuth(true) ;
-//  }
   return (
-
-  <div> 
-<AllRoutes/>
-  </div>
-
-      
+    <div className="App">
+      <Navbar />
+      <AllRoutes />
+      <Footer />
+    </div>
   );
 }
 
 export default App;
-
