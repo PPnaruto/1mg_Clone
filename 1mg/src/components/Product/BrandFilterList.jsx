@@ -4,7 +4,18 @@ import { useSearchParams } from "react-router-dom";
 import { fillBrandFilter, setBrandFilter } from "../../redux/Utils/action";
 import styles from "../../styles/BrandFilterList.module.css";
 
+let array = [];
+
+function fillData(raw) {
+  let arr = [];
+  raw.map((element) => {
+    if (arr.includes(element) == false) arr.push(element);
+  });
+  array = arr;
+}
+
 const BrandFilterList = ({ data }) => {
+
   const [search_param, setSearchParam] = useSearchParams();
   const sort = search_param.get("sort") || "id";
   const brand_filter = useSelector((state) => state.utils.brand_filter) || [];
@@ -13,12 +24,13 @@ const BrandFilterList = ({ data }) => {
   const gender_filter = search_param.get("gender_filter") || "none";
   const dispatch = useDispatch();
 
+
   useEffect(() => {
     if (search_brand[0] != "none") {
       fillBrandFilter(dispatch, search_brand);
     }
   }, []);
-
+  fillData(data);
   const handleChange = (e) => {
     let value = e.target.value;
     const status = e.target.checked;
@@ -64,7 +76,7 @@ const BrandFilterList = ({ data }) => {
 
   return (
     <div className={styles.list}>
-      {data.map((element, index) => (
+      {array.map((element, index) => (
         <div className={styles.item} key={index}>
           <input
             type="checkbox"

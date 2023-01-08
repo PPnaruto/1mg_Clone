@@ -1,12 +1,17 @@
 import styles from "../../styles/SingleProduct.module.css";
+import {useNavigate} from "react-router-dom";
 
 import Rating from "./Rating";
 
 const SingleProduct = (props) => {
-  const { image, title, desc, rating, price, discount } = props;
+  const {id, image, title, desc, rating, price, discount } = props;
   const final_price = Math.round(price - price * (discount / 100));
+  const navigate = useNavigate();
+  const redirect=()=>{
+      navigate(`/singleproduct/${id}`);
+  }
   return (
-    <div className={styles.product}>
+    <div onClick={redirect} className={styles.product}>
       <div className={styles.image}>
         <img src={image} alt={title} />
       </div>
