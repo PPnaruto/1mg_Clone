@@ -1,5 +1,5 @@
 const initdata={
-    Products:[],
+    Products:[] ,
 }
 
 let Addtocart_reducer=(state=initdata,action)=>{
@@ -10,7 +10,6 @@ let Addtocart_reducer=(state=initdata,action)=>{
                 Products:[...state.Products,action.payload],
             }
     }
-    localStorage.setItem("Cartdata",JSON.stringify(state));
     return state;
 
 }

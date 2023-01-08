@@ -8,7 +8,7 @@ import { useState } from "react";
 function Checkout() {
 
     const data = JSON.parse(localStorage.getItem('Cartdata'));
-    console.log(data);
+    console.log(data.Products);
 
     const dispatch = useDispatch();
     const history = useNavigate();

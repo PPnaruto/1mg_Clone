@@ -1,11 +1,11 @@
 //here item is that when user click on add to cart button
 
-const ADD = (item) =>{
-    return{
-        type:"ADD_CART", //then we call these fun in reducers
-        payload:item
-    }
-}
+// const ADD = (item) =>{
+//     return{
+//         type:"ADD_CART", //then we call these fun in reducers
+//         payload:item
+//     }
+// }
 
 const DLT = (id) =>{
     const carts = JSON.parse(localStorage.getItem('Cartdata'));  // get the current cart from local storage
@@ -19,4 +19,4 @@ const DLT = (id) =>{
 }
 
 
-export { ADD ,DLT};
+export { DLT};
