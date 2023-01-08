@@ -63,8 +63,8 @@ import Footer_new from '../components/Footer/Footer_new';
                         state.product_form==="Powder" ? 
                         <> 
                         <div onClick={()=>handleprice(state.price)} className={style.tab_qty}><p >200g {state.product_form}</p><br /><span>Rs.{state.price}</span></div>
-                        <div onClick={()=>handleprice(state.price*2)} className={style.tab_qty}><p>500 {state.product_form}</p><br /><span>Rs.{state.price*2}</span></div>
-                        <div onClick={()=>handleprice(state.price*3)} className={style.tab_qty}><p>750 {state.product_form}</p><br /><span>Rs.{state.price*3}</span></div>
+                        <div onClick={()=>handleprice(state.price*2)} className={style.tab_qty}><p>500g {state.product_form}</p><br /><span>Rs.{state.price*2}</span></div>
+                        <div onClick={()=>handleprice(state.price*3)} className={style.tab_qty}><p>750g {state.product_form}</p><br /><span>Rs.{state.price*3}</span></div>
                         </> : 
                         <div></div> )
                     }
