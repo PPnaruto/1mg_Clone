@@ -14,6 +14,7 @@ import DeliveryBox from '../components/SingleProduct/DeliveryBox';
 import AdditionalOffer from '../components/SingleProduct/AdditionalOffer';
 import ContentDetails from '../components/SingleProduct/ContentDetails';
 import {useParams} from "redux";
+import Footer_new from '../components/Footer/Footer_new';
 
  const SingleProduct = () => {
 
@@ -109,7 +110,7 @@ import {useParams} from "redux";
           </div>
         </div>      
     </div>
-   
+   <Footer_new/>
     </div>
   )
 }

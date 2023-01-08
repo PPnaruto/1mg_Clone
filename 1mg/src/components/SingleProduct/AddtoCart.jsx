@@ -1,9 +1,9 @@
 import React from 'react';
 import style from "../../styles/SingleProduct.module.css";
-import Addtocart_action from '../../redux/Cart/AddtoCart_action';
+import {Addtocart_action} from '../../redux/Cart/AddtoCart_action';
 import { useDispatch,useSelector } from 'react-redux';
 import store from '../../redux/store';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
 
 
@@ -12,15 +12,23 @@ const AddtoCart = ({state,price}) => {
         return seletor.cart.Products;
     })
    
-
+    const [cartitem,setCartitem] = useState([]);
     const [qty,setQty] = useState(1);
     const [flag,setFlag] = useState(true);
     const dispatch = useDispatch();
+    useEffect(()=>{
+         setCartitem(JSON.parse(localStorage.getItem("Cartdata1"))||[]);
+    },[cartitem])
      const handleclick=()=>{
            const filtered= data.filter((e)=>{
                 return (e.Actual_price===price && e.qty===qty && e.state.title===state.title)       
             })
             if(filtered.length==0){
+                localStorage.setItem("Cartdata1",JSON.stringify([...cartitem,{
+                    state:state,
+                    Actual_price:price,
+                    qty:qty
+                }]));
                 Addtocart_action(state,price,qty,dispatch);
                 alert("Product Added Succesfully");
             }else{
