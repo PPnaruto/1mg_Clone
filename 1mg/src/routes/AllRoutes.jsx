@@ -9,12 +9,13 @@ import Healthcare from "./Healthcare";
 import Personal from "./Personal";
 import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
+import Address from "./Address";
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/singleproduct/:id" element={<SingleProduct/>}/>
+      <Route path="/singleproduct/:id" element={<SingleProduct />} />
       <Route path="/products/vitamins" element={<Vitamins />} />
       <Route path="/products/diabetes" element={<Diabetes />} />
       <Route path="/products/healthcare" element={<Healthcare />} />
@@ -22,7 +23,8 @@ const AllRoutes = () => {
       <Route path="/products/ayurveda" element={<Ayurveda />} />
       <Route path="/products/homeopathy" element={<Homeopathy />} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/search" element={<SearchResults/>} />
+      <Route path="/address" element={<Address />} />
+      <Route path="/search" element={<SearchResults />} />
     </Routes>
   );
 };
