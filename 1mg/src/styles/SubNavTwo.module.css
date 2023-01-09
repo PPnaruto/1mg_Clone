@@ -47,6 +47,10 @@
   font-size: small;
 }
 
+.search input {
+  color: black;
+}
+
 .search > .button {
   cursor: pointer;
 }

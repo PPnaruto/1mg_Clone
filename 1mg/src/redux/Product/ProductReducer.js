@@ -2,6 +2,7 @@ const initial = {
   products: [],
   isLoading: false,
   isError: false,
+  search: [],
 };
 
 const ProductReducer = (state = initial, action) => {
@@ -13,6 +14,13 @@ const ProductReducer = (state = initial, action) => {
     case "SUCCESS":
       return {
         products: action.payload,
+        isLoading: false,
+        isError: false,
+      };
+    case "SEARCH":
+      return {
+        ...state,
+        search: action.payload,
         isLoading: false,
         isError: false,
       };
