@@ -8,6 +8,7 @@ import Healthcare from "./Healthcare";
 import Personal from "./Personal";
 import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
+import Payment from "./Payment";
 
 const AllRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AllRoutes = () => {
       <Route path="/products/ayurveda" element={<Ayurveda />} />
       <Route path="/products/homeopathy" element={<Homeopathy />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/payment" element={<Payment/>} />
     </Routes>
   );
 };

@@ -93,7 +93,7 @@ import Footer_new from '../components/Footer/Footer_new';
           
         </div>
     </div>
-    <div style={{display:"flex"}}>
+    <div className={style.additionl_info_container} style={{display:"flex"}}>
         <div> 
             <Youtubevideo/>
             <div className={style.Product_detail_info} style={{width:"800px"}}>
