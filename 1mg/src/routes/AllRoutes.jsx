@@ -23,11 +23,8 @@ const AllRoutes = () => {
       <Route path="/products/ayurveda" element={<Ayurveda />} />
       <Route path="/products/homeopathy" element={<Homeopathy />} />
       <Route path="/checkout" element={<Checkout />} />
-<<<<<<< HEAD
       <Route path="/address" element={<Address />} />
-=======
-      <Route path="/search" element={<SearchResults/>} />
->>>>>>> e2878f7c664884b4ce44ed622b7060acf51a0d2a
+      <Route path="/search" element={<SearchResults />} />
     </Routes>
   );
 };
