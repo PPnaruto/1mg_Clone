@@ -3,7 +3,7 @@ import style from "../../styles/SingleProduct.module.css"
 
 const Product_detail_info = () => {
   return (
-    <div style={{border:"5px solid yellow"}}>
+    <div>
         <div className={style.product_description}>
             <div className={style.description_heading}>
                 <h2>Information about Tata 1mg Salmon Omega 3 Fish Oil Capsule</h2>
