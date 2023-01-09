@@ -79,6 +79,82 @@ const brand_array = [
   },
 ];
 
+const popular_categories = [
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/b3fcf5ba-ae5e-4c94-a43f-e381cd27d5ab.webp",
+    title: "Top Deals",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/ba7328d6-022b-45fe-b87a-1f1fbead2789.png",
+    title: "Winter Care",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/f5fb69f7-cf7a-4e7c-ba48-b924c7b5111c.png",
+    title: "Nutritional Drinks",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/5adb8954-6264-46d7-8136-cb5a633b7535.png",
+    title: "Ayurveda",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/15e1ce5f-798f-4aa7-b6b4-1b140c4d6f4d.webp",
+    title: "Sexual Wellness",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/668f0b65-56ef-4875-8aef-9a53b919b53c.webp",
+    title: "Vitamins & Supplements",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/de1183ce-6b14-4549-9fda-f732d96a11de.webp",
+    title: "Skin Care",
+  },
+];
+
+const face_care = [
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/d5hkmorf6bhvfaygavgr.jpg",
+    title: "Facewash",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/vvfvegx0ioloahdllziq.jpg",
+    title: "Face Moisturisers",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/mce9xf6uprsxs0faiejb.jpg",
+    title: "Cleanser",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/ivel2razune9mzbtck39.jpg",
+    title: "Lip Balm",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/uj6sgg1gmwyaanhqq6jb.jpg",
+    title: "Face Scrub & exfoliator",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/j6dwuymx857oekcixhee.jpg",
+    title: "Facial kit & sheet mask",
+  },
+  {
+    image:
+      "https://onemg.gumlet.io/a_ignore,w_150,h_150,c_fit,q_auto,f_auto/jymippakro903wf1alxa.jpg",
+    title: "Face Serum & oil",
+  },
+];
+
 const Home = () => {
   return (
     <main>
@@ -97,6 +173,18 @@ const Home = () => {
           <p>Featured brands</p>
         </div>
         <SmallCarousal data={brand_array} />
+      </div>
+      <div className={styles.shopHealth}>
+        <div className={styles.caption}>
+          <p>Popular categories</p>
+        </div>
+        <SmallCarousal data={popular_categories} />
+      </div>
+      <div className={styles.shopHealth}>
+        <div className={styles.caption}>
+          <p>Face Care Products</p>
+        </div>
+        <SmallCarousal data={face_care} />
       </div>
     </main>
   );
