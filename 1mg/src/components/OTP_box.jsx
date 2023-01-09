@@ -27,7 +27,7 @@ return (
       <div className={style.OTP_div}>
       <form action="" className={style.OTP_form} onSubmit={handleotp}>
           <label htmlFor="">Enter OTP</label>
-          <input type="number" onChange={handlechange} />
+          <input type="number" placeholder='Enter OTP' onChange={handlechange} />
           <input type="submit" value="submit" className={style.OTP_btn}  />
       </form>
   </div>

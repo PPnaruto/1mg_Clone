@@ -55,7 +55,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-input {
+.login_container input{
   color: #ff6f61;
 }
 .btn20 {

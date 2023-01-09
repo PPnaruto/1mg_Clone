@@ -184,32 +184,10 @@ const SingleProduct = () => {
           <div style={{marginTop:"20px"}}>
             <img src="https://onemg.gumlet.io/1e960978-1780-4fa1-98da-ad02514fd6e8_1670571886.jpg?w=506&h=633&format=auto" alt="" />
           </div>
-          <AdditionalOffer />
+          {/* <AdditionalOffer /> */}
         </div>
       </div>
-      <div style={{ border: "10px solid black", display: "flex" }}>
-        <div>
-          <Youtubevideo />
-          <div
-            className={style.Product_detail_info}
-            style={{ border: "1px solid black", width: "800px" }}
-          >
-            <Product_detail_info />
-          </div>
-        </div>
-        <div style={{ border: "3px solid violet", width: "30%" }}>
-          <LabTest />
-          <ConsultDoctor />
-          <Additional />
-          <ContentDetails />
-          <div style={{ marginTop: "20px" }}>
-            <img
-              src="https://onemg.gumlet.io/1e960978-1780-4fa1-98da-ad02514fd6e8_1670571886.jpg?w=506&h=633&format=auto"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
+      
     </div>
   );
 };
