@@ -10,4 +10,19 @@ let Addtocart_action=(state,price,qty,dispatch)=>{
     })
 }
 
-export default Addtocart_action;
+const IncreasequantityAction = (payload) =>{
+    
+    return{
+        type:"INCREASE_QUANTITY", //then we call these fun in reducers
+        payload
+    }
+}
+
+const DecreasequantityAction = (payload) =>{
+    
+    return{
+        type:"DECREASE_QUANTITY", //then we call these fun in reducers
+        payload
+    }
+}
+export { IncreasequantityAction,DecreasequantityAction, Addtocart_action};
