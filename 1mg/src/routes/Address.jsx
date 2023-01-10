@@ -1,5 +1,7 @@
-import { useState } from "react";
 import styles from "../styles/Address.module.css";
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Address = () => {
   const [address, setAddress] = useState({
@@ -14,6 +16,8 @@ const Address = () => {
     position: "",
   });
 
+  const navigate = useNavigate();
+
   const fillData = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -22,7 +26,7 @@ const Address = () => {
   };
 
   const handleSubmit = () => {
-    console.log(address);
+    navigate("/payment");
   };
 
   return (

@@ -12,7 +12,6 @@ import Payment from "./Payment";
 import Address from "./Address";
 import Search from "./Search";
 
-
 const AllRoutes = () => {
   return (
     <Routes>
@@ -26,11 +25,8 @@ const AllRoutes = () => {
       <Route path="/products/homeopathy" element={<Homeopathy />} />
       <Route path="/products" element={<Search />} />
       <Route path="/checkout" element={<Checkout />} />
-<<<<<<< HEAD
-=======
-      <Route path="/payment" element={<Payment/>} />
+      <Route path="/payment" element={<Payment />} />
       <Route path="/address" element={<Address />} />
->>>>>>> f50524b09e95ee15fdc1b0a285afdec82446f197
     </Routes>
   );
 };
