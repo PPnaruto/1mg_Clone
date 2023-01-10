@@ -19,6 +19,13 @@ const setSuccess = (dispatch, payload) => {
   });
 };
 
+const setSearch = (dispatch, payload) => {
+  dispatch({
+    type: "SEARCH",
+    payload,
+  });
+};
+
 const fetchData = (category) => {
   return async (dispatch, getState) => {
     try {
@@ -33,4 +40,18 @@ const fetchData = (category) => {
   };
 };
 
-export default fetchData;
+const searchData = (query) => {
+  return async (dispatch, getState) => {
+    try {
+      setLoading(dispatch);
+      const { data } = await axios.get(
+        `http://localhost:8080/products?q=${query}`
+      );
+      setSearch(dispatch, data);
+    } catch (error) {
+      setError(dispatch);
+    }
+  };
+};
+
+export { fetchData, searchData };

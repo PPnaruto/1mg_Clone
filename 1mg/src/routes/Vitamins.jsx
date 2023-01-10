@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import AllFilters from "../components/Product/AllFilters";
 import ProductsWrapper from "../components/Product/ProductsWrapper";
-import fetchData from "../redux/Product/action";
+import { fetchData } from "../redux/Product/action";
 
 import styles from "../styles/Vitamins.module.css";
 
