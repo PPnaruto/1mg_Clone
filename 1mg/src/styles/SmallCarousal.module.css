@@ -77,12 +77,19 @@
 
 @media (max-width: 500px) {
   .container {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
   }
   .image {
     height: 100%;
   }
   img {
     object-fit: cover;
+  }
+  .smallcarousal {
+    padding: 0;
+  }
+  .button {
+    display: none;
   }
 }

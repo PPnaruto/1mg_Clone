@@ -59,7 +59,7 @@ export default function SignUpLogin() {
   };
 
   return (
-    <div>
+    <div className="login_container">
       <span
         onClick={handleLogin}
         style={{ position: "relative", cursor: "pointer" }}
