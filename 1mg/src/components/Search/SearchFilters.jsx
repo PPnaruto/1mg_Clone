@@ -6,11 +6,11 @@ import FilterGenderList from "./FilterGenderList";
 
 const SearchFilters = () => {
   const age_store = useSelector((state) =>
-    state.products.search.map((element) => element.age)
+    state.products.search?.map((element) => element.age)
   );
 
   const gender_store = useSelector((state) =>
-    state.products.search.map((element) => element.gender)
+    state.products.search?.map((element) => element.gender)
   );
 
   return (

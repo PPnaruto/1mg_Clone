@@ -5,10 +5,36 @@ import { MdMyLocation } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useRef } from "react";
+import axios from "axios";
+
+const fetchData = async (search, setter) => {
+  try {
+    const { data } = await axios.get(
+      `http://localhost:8080/products?q=${search}`
+    );
+    const result = data.map((element) => element.title);
+    setter([search, ...result]);
+  } catch (error) {}
+};
 
 const SubNavTwo = () => {
   const [search, setSearch] = useState("");
+  const [list, setList] = useState([]);
   const navigate = useNavigate();
+  const timerRef = useRef();
+
+  useEffect(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (search.trim().length > 0) {
+      timerRef.current = setTimeout(() => {
+        fetchData(search, setList);
+      }, 700);
+    } else {
+      setList([]);
+    }
+  }, [search]);
 
   const redirect = (search) => {
     navigate(`/products?search=${search}`);
@@ -18,11 +44,21 @@ const SubNavTwo = () => {
     const key = e.key;
     const value = e.target.value;
     setSearch(value);
-    if (key == "Enter") redirect(value);
+    if (key == "Enter" && value.trim().length > 0) {
+      setList([]);
+      redirect(value);
+    }
   };
 
   const handleClick = (e) => {
-    redirect(search);
+    setList([]);
+    if (search.trim().length > 0) redirect(search);
+  };
+
+  const searchResult = (index) => {
+    redirect(list[index]);
+    setSearch("");
+    setList([]);
   };
 
   return (
@@ -42,11 +78,22 @@ const SubNavTwo = () => {
             <input
               type="text"
               placeholder="Search for Medicines and Health Products"
-              onKeyDown={fillSearch}
+              onKeyUp={fillSearch}
             />
           </div>
           <div className={styles.button}>
             <FiSearch onClick={handleClick} />
+          </div>
+          <div className={styles.list}>
+            {list.map((element, index) => (
+              <div
+                className={styles.listItem}
+                onClick={() => searchResult(index)}
+                key={index}
+              >
+                <p>{element}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

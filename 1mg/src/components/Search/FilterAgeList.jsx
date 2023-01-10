@@ -4,12 +4,14 @@ import { useSearchParams } from "react-router-dom";
 import { fillAgeFilter, setAgeFilter } from "../../redux/Utils/action";
 import styles from "../../styles/AgeList.module.css";
 
-const global_array = [];
+let global_array = [];
 
 const fillData = (array) => {
+  const temp = [];
   array.forEach((element) => {
-    if (global_array.includes(element) == false) global_array.push(element);
+    if (temp.includes(element) == false) temp.push(element);
   });
+  global_array = temp;
 };
 
 const FilterAgeList = ({ data }) => {
