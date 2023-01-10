@@ -62,18 +62,18 @@
   padding-left: 70px;
   /* border: 1px solid crimson; */
 }
-.reliable_container{
-    width: 80%;
-    display: flex;
-    border: 1px solid black;
-    border-radius: 20px;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
+.reliable_container {
+  width: 80%;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 20px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
 }
-.reliable_container img{
-    width: 100px;
-    height: 100px;
+.reliable_container img {
+  width: 100px;
+  height: 100px;
 }
 .reliable_wrapper > h5 {
   font-size: 26px;
@@ -84,56 +84,63 @@
   color: #767676;
 }
 
-.footerend{
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    
+.footerend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
-.footerend_container{
-    margin-top: 10px;
+.footerend_container {
+  margin-top: 10px;
 }
-.footerend img{
-    width: 50px;
-    height: 45px;
+.footerend img {
+  width: 50px;
+  height: 45px;
 }
 .footerend_container > h3 {
   display: flex;
   justify-content: center;
   font-size: 14px;
 }
-@media (max-width:1250px){
-  
-  .footer_container{
+@media (max-width: 1250px) {
+  .footer_container {
     display: flex;
     flex-wrap: wrap;
   }
-  .container{
+  .container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width:1000px){
-  .footer_container{
+@media (max-width: 1000px) {
+  .footer_container {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     flex-direction: column;
   }
-  .container{
+  .container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width:750px){
-  .footer_container{
+@media (max-width: 750px) {
+  .footer_container {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
     /* flex-wrap: wrap; */
   }
-  .container{
+  .container {
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
+}
 
+@media (max-width: 500px) {
+  .social_icons {
+    flex-direction: column;
+  }
+  .reliable_container {
+    flex-direction: column;
+    text-align: center;
+  }
 }
