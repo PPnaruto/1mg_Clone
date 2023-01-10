@@ -10,6 +10,7 @@ import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
 import Payment from "./Payment";
 import Address from "./Address";
+import NotFound from "./NotFound";
 import Search from "./Search";
 
 const AllRoutes = () => {
@@ -27,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/payment" element={<Payment />} />
       <Route path="/address" element={<Address />} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };
