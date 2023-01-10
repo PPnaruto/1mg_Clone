@@ -28,7 +28,6 @@ const AllRoutes = () => {
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/payment" element={<Payment/>} />
       <Route path="/address" element={<Address />} />
-      <Route path="/search" element={<SearchResults />} />
       <Route path="*" element={<NotFound/>} />
     </Routes>
   );
