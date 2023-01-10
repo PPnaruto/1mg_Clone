@@ -1,8 +1,10 @@
 .App {
-  width: 400px;
-  border: 1px solid gray;
+  width: 450px;
   border-radius: 5px;
-  margin: auto;
+  margin: 5rem auto;
+  background-color: white;
+  padding: 2rem 10px;
+  box-shadow: 1px 1px 5px 0 silver;
 }
 
 .App :is(h1, p) {
@@ -11,7 +13,7 @@
 }
 .App p {
   text-align: center;
-  margin-top: -2px;
+  margin-top: 10px;
 }
 .App > div {
   display: flex;
@@ -34,8 +36,8 @@
 }
 .details {
   display: flex;
-  gap: 10px;
   margin-top: 20px;
+  justify-content: space-between;
 }
 .details input {
   width: 100px;

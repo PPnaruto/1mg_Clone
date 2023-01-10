@@ -19,7 +19,7 @@ const SingleProduct = () => {
   const [price, setPrice] = useState(state.price);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:8080/products/${id}`)
+    fetch(`https://onemg-clone-server.onrender.com/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -34,7 +34,10 @@ const SingleProduct = () => {
 
   return (
     <div>
-    <div style={{display:"flex", justifyContent:"space-around"}} className={style.parent} >
+      <div
+        style={{ display: "flex", justifyContent: "space-around" }}
+        className={style.parent}
+      >
         <div className={style.product_info}>
           <div className={style.product_image}>
             <img src={state.image} alt="" />
@@ -161,33 +164,37 @@ const SingleProduct = () => {
         <div className={style.price_info}>
           <AddtoCart state={state} price={price} />
 
-           <DeliveryBox/>
-           <div style={{marginTop:"20px"}}>
-                <img src="https://onemg.gumlet.io/8aea5d70-3f52-4c65-91ce-d30622dec7fa_1670222777.jpg?w=536&amp;h=123&amp;format=auto"/>
-           </div>
-           <AdditionalOffer/>
-          
+          <DeliveryBox />
+          <div style={{ marginTop: "20px" }}>
+            <img src="https://onemg.gumlet.io/8aea5d70-3f52-4c65-91ce-d30622dec7fa_1670222777.jpg?w=536&amp;h=123&amp;format=auto" />
+          </div>
+          <AdditionalOffer />
         </div>
-    </div>
-    <div className={style.additionl_info_container} style={{display:"flex"}}>
-        <div> 
-            <Youtubevideo/>
-            <div className={style.Product_detail_info} style={{width:"800px"}}>
-                    <Product_detail_info/>
-            </div>
+      </div>
+      <div
+        className={style.additionl_info_container}
+        style={{ display: "flex" }}
+      >
+        <div>
+          <Youtubevideo />
+          <div className={style.Product_detail_info} style={{ width: "800px" }}>
+            <Product_detail_info />
+          </div>
         </div>
-        <div style={{width:"30%"}}>
-          <LabTest/>
-          <ConsultDoctor/>
-          <Additional/>
-          <ContentDetails/>
-          <div style={{marginTop:"20px"}}>
-            <img src="https://onemg.gumlet.io/1e960978-1780-4fa1-98da-ad02514fd6e8_1670571886.jpg?w=506&h=633&format=auto" alt="" />
+        <div style={{ width: "30%" }}>
+          <LabTest />
+          <ConsultDoctor />
+          <Additional />
+          <ContentDetails />
+          <div style={{ marginTop: "20px" }}>
+            <img
+              src="https://onemg.gumlet.io/1e960978-1780-4fa1-98da-ad02514fd6e8_1670571886.jpg?w=506&h=633&format=auto"
+              alt=""
+            />
           </div>
           {/* <AdditionalOffer /> */}
         </div>
       </div>
-      
     </div>
   );
 };
