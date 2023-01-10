@@ -31,7 +31,7 @@ const fetchData = (category) => {
     try {
       setLoading(dispatch);
       const { data } = await axios.get(
-        `http://localhost:8080/products?category=${category}`
+        `https://onemg-clone-server.onrender.com/products?category=${category}`
       );
       setSuccess(dispatch, data);
     } catch (error) {
@@ -45,7 +45,7 @@ const searchData = (query) => {
     try {
       setLoading(dispatch);
       const { data } = await axios.get(
-        `http://localhost:8080/products?q=${query}`
+        `https://onemg-clone-server.onrender.com/products?q=${query}`
       );
       setSearch(dispatch, data);
     } catch (error) {

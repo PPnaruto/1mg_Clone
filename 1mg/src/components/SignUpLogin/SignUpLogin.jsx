@@ -8,7 +8,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import "../../styles/SignUpLogin.css";
-import { SignupAction } from "../../redux/Auth/AuthAction";
+import { LoginAction, SignupAction } from "../../redux/Auth/AuthAction";
 
 export default function SignUpLogin() {
   const [popup, setPopup] = useState(false);
@@ -39,6 +39,7 @@ export default function SignUpLogin() {
     if (loginotp === "1234") {
       navigate("/");
       setPopLogin(false);
+      LoginAction(dispatch, mob);
     } else {
       alert("Enter Valid OTP");
     }
@@ -289,7 +290,7 @@ export default function SignUpLogin() {
                         onClick={() => {
                           const users =
                             JSON.parse(localStorage.getItem("1mg_users"))
-                              .users || [];
+                              ?.users || [];
                           const filter = users.filter(
                             (element) => element == mob
                           );

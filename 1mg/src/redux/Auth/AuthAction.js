@@ -12,10 +12,9 @@ const LoginAction = (dispatch, payload) => {
   });
 };
 
-const LogoutAction = (dispatch, payload) => {
+const LogoutAction = (dispatch) => {
   dispatch({
     type: "LOG_OUT",
-    payload,
   });
 };
 
