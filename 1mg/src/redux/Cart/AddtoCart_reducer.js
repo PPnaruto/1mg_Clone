@@ -44,8 +44,20 @@ let Addtocart_reducer=(state=initdata,action)=>{
                 }
                 localStorage.setItem("Cartdata1",JSON.stringify(products));
                 break;
+
+                case "RMV_CART":
+                        const list = state.Products.filter((e,i) =>{
+                            return (i !== action.payload)
+                        })
+                        state={
+                            ...state,
+                            Products:list
+                            
+                        }
+                        localStorage.setItem("Cartdata1",JSON.stringify(list));
+                        break;
     }
-    //localStorage.setItem('Cartdata1', JSON.stringify(state));
+    
     return state;
 
 }

@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import SingleProduct from "../routes/SingleProduct";
 import Checkout from "../components/Checkout/checkout";
-import SearchResults from "../components/Checkout/search";
 import Home from "./Home";
 import Vitamins from "./Vitamins";
 import Diabetes from "./Diabetes";
@@ -9,6 +8,7 @@ import Healthcare from "./Healthcare";
 import Personal from "./Personal";
 import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
+
 
 const AllRoutes = () => {
   return (
@@ -22,7 +22,6 @@ const AllRoutes = () => {
       <Route path="/products/ayurveda" element={<Ayurveda />} />
       <Route path="/products/homeopathy" element={<Homeopathy />} />
       <Route path="/checkout" element={<Checkout />} />
-      <Route path="/search" element={<SearchResults/>} />
     </Routes>
   );
 };

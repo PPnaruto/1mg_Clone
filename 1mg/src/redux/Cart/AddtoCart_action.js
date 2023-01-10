@@ -25,4 +25,11 @@ const DecreasequantityAction = (payload) =>{
         payload
     }
 }
-export { IncreasequantityAction,DecreasequantityAction, Addtocart_action};
+
+const DeleteitemAction = (payload) =>{
+    return{
+        type:"RMV_CART", //then we call these fun in reducers
+        payload
+    }
+}
+export { IncreasequantityAction,DecreasequantityAction, Addtocart_action , DeleteitemAction };
