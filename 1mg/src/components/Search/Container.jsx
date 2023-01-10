@@ -8,7 +8,7 @@ import SingleProduct from "../Product/SingleProduct";
 
 const Container = ({ sort }) => {
   const [products, setProducts] = useState([]);
-  const data = useSelector((state) => state.products.search);
+  const data = useSelector((state) => state.products.search) || [];
   const loading = useSelector((state) => state.products.isLoading);
   const age_filter = useSelector((state) => state.utils.age_filter);
   const gender_filter = useSelector((state) => state.utils.gender_filter);

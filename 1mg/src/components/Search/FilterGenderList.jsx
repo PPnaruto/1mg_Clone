@@ -29,7 +29,9 @@ const FilterGenderList = ({ data }) => {
     }
   }, []);
 
-  fillData(data);
+  if (typeof data != "undefined") {
+    fillData(data);
+  }
 
   const handleChange = (e) => {
     const value = e.target.value;
