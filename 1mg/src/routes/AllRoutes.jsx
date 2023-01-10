@@ -1,7 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import SingleProduct from "../routes/SingleProduct";
 import Checkout from "../components/Checkout/checkout";
-import SearchResults from "../components/Checkout/search";
 import Home from "./Home";
 import Vitamins from "./Vitamins";
 import Diabetes from "./Diabetes";
@@ -11,6 +10,7 @@ import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
 import Payment from "./Payment";
 import Address from "./Address";
+import Search from "./Search";
 
 const AllRoutes = () => {
   return (
@@ -23,10 +23,10 @@ const AllRoutes = () => {
       <Route path="/products/personal" element={<Personal />} />
       <Route path="/products/ayurveda" element={<Ayurveda />} />
       <Route path="/products/homeopathy" element={<Homeopathy />} />
+      <Route path="/products" element={<Search />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/payment" element={<Payment/>} />
       <Route path="/address" element={<Address />} />
-      <Route path="/search" element={<SearchResults />} />
     </Routes>
   );
 };
