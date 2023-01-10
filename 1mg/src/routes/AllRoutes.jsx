@@ -11,6 +11,7 @@ import Ayurveda from "./Ayurveda";
 import Homeopathy from "./Homeopathy";
 import Payment from "./Payment";
 import Address from "./Address";
+import NotFound from "./NotFound";
 
 const AllRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AllRoutes = () => {
       <Route path="/payment" element={<Payment/>} />
       <Route path="/address" element={<Address />} />
       <Route path="/search" element={<SearchResults />} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };
