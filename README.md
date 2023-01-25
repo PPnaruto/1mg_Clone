@@ -9,7 +9,9 @@
 # Duration : 5 Days
 
 # Project Description:-
-Tata 1mg is India's leading consumer health platform. It aspires to be the trusted health partner for all Indians and its mission is to make healthcare accessible, understandable and affordable for a billion Indians. It enables consumers to learn more about their medicines and also find more cost-effective substitutes.
+Tata 1mg is consumer health platform. This site offer a various medicines of almost all brands so user can choose as per their wish. Thorugh this website, we want to make healthcare accessible, understandable and affordable for a billion Indian. User can buy medicines as per their need since we have provided the medicined in categories.(E.g. Diabetes patient can search their medicines in diabetes section).
+
+We got this site as our construct week project, a clone of Tata-1mg.
   
   Original Website Link :- https://www.1mg.com/
   
