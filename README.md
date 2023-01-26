@@ -20,6 +20,9 @@ We got this site as our construct week project, a clone of Tata-1mg.
 # Tech Stacks:- 
         HTML, CSS, JavaScripts, React, Redux, JSON 
         
+# Process Flow:-
+        Landing Page -> Click on any one of the category mentioned below Navbar -> Product Page -> Single Product Page -> Cart -> Address and details -> Payment Page
+        
 # Pages and Features:- 
 ![1mg_gif](https://user-images.githubusercontent.com/113718053/214326267-7b246ff6-aeca-46c6-b66f-5a772d99a370.gif)
 ![Tata_1mg_1](https://user-images.githubusercontent.com/113718053/214326388-5929846f-c53d-4469-9b86-ffd669558134.png)
